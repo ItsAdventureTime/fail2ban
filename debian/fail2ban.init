@@ -24,13 +24,13 @@ NAME=fail2ban
 
 # fail2ban-client is not a daemon itself but starts a daemon and
 # loads its with configuration
-DAEMON=/usr/bin/$NAME-client
+DAEMON=/usr/local/bin/$NAME-client
 SCRIPTNAME=/etc/init.d/$NAME
 
 # Ad-hoc way to parse out socket file name
 SOCKFILE=`grep -h '^[^#]*socket *=' /etc/$NAME/$NAME.conf /etc/$NAME/$NAME.local 2>/dev/null \
           | tail -n 1 | sed -e 's/.*socket *= *//g' -e 's/ *$//g'`
-[ -z "$SOCKFILE" ] && SOCKFILE='/tmp/fail2ban.sock'
+[ -z "$SOCKFILE" ] && SOCKFILE='/var/run/fail2ban.sock'
 
 # Exit if the package is not installed
 [ -x "$DAEMON" ] || exit 0
