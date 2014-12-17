@@ -18,6 +18,10 @@
 # Description: Start/Stop fail2ban, a daemon to ban hosts that cause multiple authentication errors
 ### END INIT INFO
 
+# Please add code which will create a folder under /var/run/fail2ban 
+# if it doesn't exist so that the missing socket file error will disappear. 
+# I have no idea how to do it since I'm just a beginner in Linux. I'm currently using CentOS.
+
 # Source function library.
 . /etc/rc.d/init.d/functions
 
